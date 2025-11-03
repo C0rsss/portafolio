@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; }
+    .card { background: var(--card-bg); border:1px solid var(--border-color); border-radius:16px; padding:2rem; max-width:520px; box-shadow: 0 20px 48px rgba(168,255,0,0.18); }
+    .title { font-size:2rem; margin-bottom:1rem; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .desc { color: var(--text-secondary); margin-bottom:1.5rem; }
+    .btn { display:inline-block; padding:0.9rem 1.6rem; border-radius:999px; text-decoration:none; color:#000; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); box-shadow: 0 10px 26px rgba(168,255,0,0.22); }
+  </style>
+  <script>
+    setTimeout(()=>{ window.location.href = './index.html#contact'; }, 6000);
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1 class="title">¡Gracias!</h1>
+    <p class="desc">Tu mensaje ha sido enviado correctamente. Te responderé lo antes posible.</p>
+    <a class="btn" href="./index.html#contact">Volver</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George - Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">{ George }</div>
+        <button class="menu-toggle" aria-label="Abrir menú" aria-controls="primary-nav" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="primary-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+    <!-- Section 1: Hero -->
+    <section class="hero" id="home">
+        <div class="hero-left" data-stagger="0.12">
+            <h1 class="reveal" data-reveal="up">Hello, I'm George</h1>
+            <p class="hero-subtitle reveal" data-reveal="up">
+                <span class="rotating-text" id="rotatingText"></span><span class="typing-caret" aria-hidden="true"></span>
+            </p>
+            <p class="hero-description reveal" data-reveal="up">
+                Apasionado por crear experiencias digitales increíbles y soluciones innovadoras 
+                que hacen la diferencia. Transformo ideas en código funcional y elegante.
+            </p>
+            <a href="assets/cv/George-CV.pdf" class="btn-download reveal" data-reveal="up" download>Download CV</a>
+        </div>
+
+        <div class="hero-right">
+            <div class="profile-container" data-stagger="0.08">
+                <div class="profile-circle reveal" data-reveal="zoom"><img src="assets/images/George.jpg" alt="George"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Java.svg" alt="Java"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/JavaScript.svg" alt="JavaScript"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/CSS3.svg" alt="CSS3"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Git.svg" alt="Git"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/React.svg" alt="React"></div>
+                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Devicon.svg" alt="Devos"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: About Me -->
+    <section class="about-section" id="about">
+        <div class="about-left" data-stagger="0.12">
+            <h2 class="section-title reveal" data-reveal="left">About Me</h2>
+            <p class="about-text reveal" data-reveal="up">
+                Soy un desarrollador apasionado con experiencia en la creación de aplicaciones web modernas y funcionales.
+                Disfruto enfrentar desafíos técnicos y transformar ideas en proyectos reales que aporten valor.
+                Me enfoco en construir soluciones prácticas, aprender constantemente y mantenerme al día con las nuevas tecnologías
+                y tendencias del desarrollo.
+            </p>
+            
+            <h3 class="skills-subtitle reveal" data-reveal="up">Skills & Technologies</h3>
+            <div class="skills-container" data-stagger="0.06">
+                <div class="skill-badge reveal" data-reveal="up">HTML</div>
+                <div class="skill-badge reveal" data-reveal="up">CSS</div>
+                <div class="skill-badge reveal" data-reveal="up">JavaScript</div>
+                <div class="skill-badge reveal" data-reveal="up">React</div>
+                <div class="skill-badge reveal" data-reveal="up">Node.js</div>
+                <div class="skill-badge reveal" data-reveal="up">Java</div>
+                <div class="skill-badge reveal" data-reveal="up">Spring Boot</div>
+                <div class="skill-badge reveal" data-reveal="up">Git</div>
+                <div class="skill-badge reveal" data-reveal="up">Responsive Design</div>
+                <div class="skill-badge reveal" data-reveal="up">UI/UX</div>
+            </div>
+        </div>
+
+        <div class="about-right">
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dot"></div>
+                    <div class="code-dot"></div>
+                    <div class="code-dot"></div>
+                </div>
+                <div class="code-content">
+                    <div class="code-line"><span class="code-keyword">const</span> <span class="code-function">developer</span> = {</div>
+                    <div class="code-line">  name: <span class="code-string">'George'</span>,</div>
+                    <div class="code-line">  role: <span class="code-string">'Front-End Developer'</span>,</div>
+                    <div class="code-line">  skills: [</div>
+                    <div class="code-line">    <span class="code-string">'JavaScript'</span>,</div>
+                    <div class="code-line">    <span class="code-string">'React'</span>,</div>
+                    <div class="code-line">    <span class="code-string">'Java'</span>,</div>
+                    <div class="code-line">    <span class="code-string">'Spring Boot'</span></div>
+                    <div class="code-line">    <span class="code-string">'Git'</span></div>
+                    <div class="code-line">    <span class="code-string">'Responsive Design'</span></div>
+                    <div class="code-line">    <span class="code-string">'UI/UX'</span></div>
+                    <div class="code-line">  ],</div>
+                    <div class="code-line">  passion: <span class="code-string">'Building amazing web experiences'</span></div>
+                    <div class="code-line">};</div>
+                    <div class="code-line"></div>
+                    <div class="code-line"><span class="code-comment">// Always learning, always creating</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Projects -->
+    <section class="projects-section" id="projects">
+        <h2 class="section-title reveal" data-reveal="left">My Projects</h2>
+        <div class="projects-grid" data-stagger="0.12">
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">🚀</div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Plataforma completa de comercio electrónico con pasarela de pagos, gestión de inventario y panel de administración.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">🎯</div>
+                <div class="project-content">
+                    <h3>Task Management App</h3>
+                    <p>Aplicación de gestión de tareas con colaboración en tiempo real y notificaciones inteligentes.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">PWA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">✨</div>
+                <div class="project-content">
+                    <h3>Analytics Dashboard</h3>
+                    <p>Dashboard interactivo con visualización de datos en tiempo real y reportes personalizables.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">D3.js</span>
+                        <span class="tag">API REST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">🎨</div>
+                <div class="project-content">
+                    <h3>Portfolio Generator</h3>
+                    <p>Herramienta para crear portafolios personalizados con plantillas prediseñadas y exportación a código.</p>
+                    <div class="project-tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">TailwindCSS</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <h3>Social Media App</h3>
+                    <p>Red social con feed de noticias, mensajería instantánea y compartición de contenido multimedia.</p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-reveal="up">
+                <div class="project-image">🎮</div>
+                <div class="project-content">
+                    <h3>Gaming Platform</h3>
+                    <p>Plataforma de juegos en línea con sistema de puntuaciones, logros y torneos multijugador.</p>
+                    <div class="project-tags">
+                        <span class="tag">Three.js</span>
+                        <span class="tag">WebSocket</span>
+                        <span class="tag">Redis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-left" data-stagger="0.12">
+            <h2 class="section-title reveal" data-reveal="left">Let's Connect</h2>
+            <p class="contact-message reveal" data-reveal="up">
+                ¿Tienes un proyecto en mente o simplemente quieres saludar? 
+                No dudes en contactarme. Estoy siempre abierto a nuevas oportunidades 
+                y colaboraciones interesantes. ¡Hablemos!
+            </p>
+
+            <div class="social-links" data-stagger="0.08">
+                <a href="mailto:georgerojasmorillo@gmail.com" class="social-link reveal" data-reveal="right" aria-label="Email" title="Email">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+                </a>
+                <a href="https://github.com/C0rsss" target="_blank" class="social-link reveal" data-reveal="right" aria-label="GitHub" title="GitHub" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.71c-2.78.6-3.37-1.19-3.37-1.19-.45-1.17-1.1-1.48-1.1-1.48-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 7.07c.86 0 1.74.12 2.56.36 1.93-1.29 2.78-1.02 2.78-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/ge0rgeee" target="_blank" class="social-link reveal" data-reveal="right" aria-label="LinkedIn" title="LinkedIn" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.5c0-1.55-.03-3.54-2.16-3.54-2.16 0-2.49 1.68-2.49 3.43V23h-4V8.5z"/></svg>
+                </a>
+                <a href="https://wa.me/573504424191?text=Hola%20George%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" class="social-link reveal" data-reveal="right" aria-label="WhatsApp" title="WhatsApp" rel="noopener">
+                    <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M19.11 17.13c-.27-.14-1.59-.79-1.84-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.48-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.43-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.28 0 1.34.98 2.63 1.12 2.81.14.18 1.92 2.94 4.65 4.12.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.59-.65 1.82-1.28.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.52-.32z"/><path d="M26.66 5.34A15.9 15.9 0 0 0 16 .01C7.18.01.01 7.18.01 16c0 2.82.74 5.55 2.14 7.96L.01 32l8.2-2.09A15.92 15.92 0 0 0 16 31.99c8.82 0 15.99-7.17 15.99-15.99 0-4.27-1.66-8.29-4.67-11.3zM16 29.27c-2.69 0-5.23-.78-7.43-2.26l-.53-.34-4.86 1.24 1.3-4.73-.35-.57a13.12 13.12 0 0 1-2.03-7.01C1.99 8.42 8.41 1.99 16 1.99c3.72 0 7.22 1.45 9.85 4.08a13.85 13.85 0 0 1 4.08 9.85c0 7.59-6.43 14.02-13.93 13.35z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-right">
+            <form class="contact-form" id="contactForm" data-stagger="0.08" action="https://formsubmit.co/georgerojasmorillo@gmail.com" method="POST">
+                <div id="formStatus" class="form-status"></div>
+                
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="box" />
+                <input type="hidden" name="_next" value="./gracias.html" />
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+                
+                <div class="form-group reveal" data-reveal="up">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group reveal" data-reveal="up">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group reveal" data-reveal="up">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit reveal" data-reveal="up">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal" data-reveal="up">
+        <p>© 2025 George. Made with 💜 and lots of ☕</p>
+    </footer>
+
+
+</body>
+</html>
