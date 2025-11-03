@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Netlify Deploy (Production)
-        uses: netlify/actions/cli@v4
+        uses: netlify/actions/cli@v5
         with:
           args: deploy --prod
         env:
@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Netlify Deploy (Preview)
-        uses: netlify/actions/cli@v4
+        uses: netlify/actions/cli@v5
         with:
           args: deploy
         env:
