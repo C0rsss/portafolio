@@ -14,10 +14,13 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Netlify Deploy (Production)
-        uses: netlify/actions/cli@v5
+      - uses: actions/setup-node@v4
         with:
-          args: deploy --prod
+          node-version: 20
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Netlify Deploy (Production)
+        run: netlify deploy --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -29,10 +32,13 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Netlify Deploy (Preview)
-        uses: netlify/actions/cli@v5
+      - uses: actions/setup-node@v4
         with:
-          args: deploy
+          node-version: 20
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Netlify Deploy (Preview)
+        run: netlify deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
