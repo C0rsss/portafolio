@@ -1,26 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gracias</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body { display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; }
-    .card { background: var(--card-bg); border:1px solid var(--border-color); border-radius:16px; padding:2rem; max-width:520px; box-shadow: 0 20px 48px rgba(168,255,0,0.18); }
-    .title { font-size:2rem; margin-bottom:1rem; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .desc { color: var(--text-secondary); margin-bottom:1.5rem; }
-    .btn { display:inline-block; padding:0.9rem 1.6rem; border-radius:999px; text-decoration:none; color:#000; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); box-shadow: 0 10px 26px rgba(168,255,0,0.22); }
-  </style>
-  <script>
-    setTimeout(()=>{ window.location.href = './index.html#contact'; }, 6000);
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Mensaje enviado! — George Rojas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --neon: #BF5FFF;
+    --neon-glow: 0 0 20px rgba(191,95,255,0.6), 0 0 60px rgba(191,95,255,0.2);
+    --bg: #080808;
+    --bg2: #0e0e0e;
+    --white: #f0f0f0;
+    --gray: #888;
+    --gray-light: #bbb;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 24px;
+    overflow: hidden;
+  }
+
+  /* Grid bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(191,95,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(191,95,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Radial glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(191,95,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    background: var(--bg2);
+    border: 1px solid rgba(191,95,255,0.2);
+    padding: 60px 48px;
+    max-width: 520px;
+    width: 100%;
+    animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    opacity: 0;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--neon), transparent);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .checkmark {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    display: block;
+    animation: pop 0.5s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+  }
+  @keyframes pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+
+  .logo {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    display: block;
+  }
+  .logo span { color: var(--neon); }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 72px);
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--neon);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .desc {
+    font-size: 0.95rem;
+    color: var(--gray-light);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--neon);
+    color: #000;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: box-shadow 0.3s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+  }
+
+  .timer {
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+  }
+  .timer span { color: var(--neon); }
+</style>
+<script>
+  // Auto-redirect after 6 seconds
+  let countdown = 6;
+  function tick() {
+    const el = document.getElementById('timerNum');
+    if (el) el.textContent = countdown;
+    if (countdown <= 0) {
+      window.location.href = './index.html#contact';
+      return;
+    }
+    countdown--;
+    setTimeout(tick, 1000);
+  }
+  window.addEventListener('DOMContentLoaded', () => setTimeout(tick, 500));
+</script>
 </head>
 <body>
   <div class="card">
+    <span class="logo">{ <span>G</span>eorge }</span>
+    <span class="checkmark">✅</span>
     <h1 class="title">¡Gracias!</h1>
-    <p class="desc">Tu mensaje ha sido enviado correctamente. Te responderé lo antes posible.</p>
-    <a class="btn" href="./index.html#contact">Volver</a>
+    <p class="subtitle">Mensaje recibido</p>
+    <p class="desc">
+      Tu mensaje ha sido enviado correctamente.<br>
+      Te responderé lo antes posible. ¡Hablemos!
+    </p>
+    <a class="btn" href="./index.html#contact">← Volver al portafolio</a>
+    <p class="timer">Redirigiendo en <span id="timerNum">6</span>s...</p>
   </div>
 </body>
 </html>

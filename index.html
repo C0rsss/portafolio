@@ -1,257 +1,401 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>George - Portafolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>George Rojas — Junior Developer</title>
+  <meta name="description"
+    content="Portafolio de George Rojas, Junior Developer especializado en React, Java, Spring Boot y más. Proyectos reales, código limpio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="assets/images/coding.png" type="image/png">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">{ George }</div>
-        <button class="menu-toggle" aria-label="Abrir menú" aria-controls="primary-nav" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Cinematic overlays -->
+  <canvas id="particleCanvas"></canvas>
+  <div class="scanlines"></div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="logo">{ <span>G</span>eorge }</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- SOCIAL FLOATING BAR -->
+  <div class="social-float" id="socialFloat" aria-label="Redes sociales">
+    <a href="mailto:georgerojasmorillo@gmail.com" class="sf-btn sf-email" aria-label="Email" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <polyline points="2,4 12,13 22,4" />
+      </svg>
+    </a>
+    <a href="https://github.com/C0rsss" target="_blank" rel="noopener" class="sf-btn sf-github" aria-label="GitHub"
+      title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.71c-2.78.6-3.37-1.19-3.37-1.19-.45-1.17-1.1-1.48-1.1-1.48-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 7.07c.86 0 1.74.12 2.56.36 1.93-1.29 2.78-1.02 2.78-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ge0rgeee" target="_blank" rel="noopener" class="sf-btn sf-linkedin"
+      aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    </a>
+    <a href="https://wa.me/573504424191?text=Hola%20George,%20vi%20tu%20portafolio%20y%20me%20gustaría%20hablar%20contigo"
+      target="_blank" rel="noopener" class="sf-btn sf-whatsapp" aria-label="WhatsApp" title="WhatsApp">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.19-.3a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m-3.53 3.16c-.19 0-.41.03-.61.25-.2.23-.77.75-.77 1.83 0 1.08.78 2.13.89 2.27.11.15 1.53 2.34 3.71 3.28.52.22.92.35 1.24.45.52.17.99.14 1.36.09.41-.06 1.27-.52 1.45-1.02.18-.51.18-.94.13-1.03-.05-.09-.18-.15-.39-.26-.21-.11-1.27-.63-1.46-.7-.2-.07-.34-.11-.48.11-.14.22-.55.7-.67.84-.13.14-.25.16-.46.05-.21-.11-.89-.33-1.69-1.05-.63-.56-1.05-1.25-1.17-1.47-.12-.22-.01-.34.1-.45.1-.1.21-.25.32-.37.11-.13.15-.21.22-.36.07-.14.04-.27-.02-.38-.06-.11-.53-1.27-.72-1.74-.18-.47-.37-.4-.53-.4Z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-name-bg glitch" data-text="GEORGE">GEORGE</div>
+
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span id="heroTag">Junior Developer</span>
+      </div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">
+        <span class="scramble-reveal" data-final="Hola,">Hola,</span><br>
+        Soy <span class="neon-word glitch" data-text="George" id="glitchName">George</span>
+      </h1>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">
+        <span id="typewriter"></span><span class="type-cursor">|</span>
+      </p>
+      <div class="hero-cta reveal" style="transition-delay:0.3s">
+        <a href="assets/cv/George-CV.pdf" class="btn-primary" download>
+          ↓ Download CV
+        </a>
+        <a href="#contact" class="btn-outline">Contact Me →</a>
+      </div>
+    </div>
+
+    <div class="hero-character">
+      <div class="character-wrap">
+        <img src="assets/images/Icon George.png" alt="George" class="character-img">
+        <div class="char-particles">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="character-glow"></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Projects Done</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.1s">
+        <div class="stat-num" data-count="1">0</div>
+        <div class="stat-label">Year Learning</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.2s">
+        <div class="stat-num" data-count="100">0</div>
+        <div class="stat-label">% Committed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <span class="section-num reveal-left">// 01</span>
+        <h2 class="about-section-title reveal-left" style="transition-delay:0.1s">
+          About<br><span class="outline">Me</span>
+        </h2>
+        <p class="about-text reveal" style="transition-delay:0.15s">
+          Soy un desarrollador junior apasionado, autodidacta y con hambre de crecer.
+          En menos de un año construí proyectos reales que van desde APIs REST hasta
+          sitios web corporativos completos.
+        </p>
+        <p class="about-text reveal" style="transition-delay:0.2s">
+          Me enfoco en construir soluciones limpias y funcionales. Creo que la mejor
+          forma de aprender es construyendo cosas reales — y eso es exactamente lo que hago.
+        </p>
+        <div class="skill-tags reveal" style="transition-delay:0.25s">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">UI/UX</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <div class="code-card">
+          <div class="code-header">
+            <div class="code-dot"></div>
+            <div class="code-dot"></div>
+            <div class="code-dot"></div>
+            <span class="code-filename">developer.js</span>
+          </div>
+          <div class="code-body">
+            <div><span class="c-kw">const</span> <span class="c-fn">george</span> <span class="c-white">= {</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">name:</span> <span class="c-str">'George Rojas'</span><span
+                class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">role:</span> <span class="c-str">'Junior Developer'</span><span
+                class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">location:</span> <span class="c-str">'Venezuela 🇻🇪'</span><span
+                class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">experience:</span> <span class="c-str">'&lt; 1 year'</span><span
+                class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">stack: [</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">'React'</span><span class="c-white">,</span> <span
+                class="c-str">'JavaScript'</span><span class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">'Java'</span><span class="c-white">,</span> <span
+                class="c-str">'Spring Boot'</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">],</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">available:</span> <span class="c-kw">true</span><span
+                class="c-white">,</span></div>
+            <div>&nbsp;&nbsp;<span class="c-white">mindset:</span> <span class="c-str">'Always building 🚀'</span></div>
+            <div><span class="c-white">};</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-cm">// Junior pero con proyectos reales ✅</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header reveal-left">
+    <div>
+      <span class="section-num">// 02</span>
+      <h2 class="section-title-big">Selected<br>Projects</h2>
+    </div>
+  </div>
+
+  <div class="projects-list">
+
+    <!-- Project 1 — Real Client (Charlotte, NC) -->
+    <div class="project-row reveal featured-project">
+      <span class="proj-num">01</span>
+      <div class="proj-main">
+        <div class="proj-name-row">
+          <span class="proj-name">Goto Restoration</span>
+          <span class="proj-badge">REAL CLIENT - USA</span>
+        </div>
+        <span class="proj-desc">Landing page profesional para empresa de remediación en Charlotte, NC. Incluye optimización SEO local, infraestructura de correos corporativos y despliegue automatizado.</span>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML5/CSS3</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">Vercel</span>
+          <span class="proj-tag">SEO Audit</span>
+        </div>
+      </div>
+      <a href="https://www.gotorestorationnc.com/" target="_blank" rel="noopener" class="proj-arrow"
+        aria-label="Ver proyecto">↗</a>
+    </div>
+
+    <!-- Project 2 — Portfolio -->
+    <div class="project-row reveal" style="transition-delay:0.05s">
+      <span class="proj-num">02</span>
+      <div class="proj-main">
+        <div class="proj-name-row">
+          <span class="proj-name">Portfolio Personal</span>
+        </div>
+        <span class="proj-desc">Este mismo portafolio — diseñado y desarrollado desde cero con animaciones, tema oscuro y efectos cinemáticos.</span>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML/CSS</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">Animaciones</span>
+        </div>
+      </div>
+      <a href="https://C0rsss.github.io/portafolio/" target="_blank" rel="noopener" class="proj-arrow"
+        aria-label="Ver proyecto">↗</a>
+    </div>
+
+    <!-- Project 3 — Agencia de Publicidad (Upcoming) -->
+    <div class="project-row reveal" style="transition-delay:0.1s">
+      <span class="proj-num">03</span>
+      <div class="proj-main">
+        <div class="proj-name-row">
+          <span class="proj-name">Creative Agency Portfolio</span>
+          <span class="proj-badge proj-badge--wip">EN PROGRESO</span>
+        </div>
+        <span class="proj-desc">Sitio web corporativo de alto impacto visual con animaciones avanzadas, sistema de gestión de citas y optimización SEO integral.</span>
+        <div class="proj-tags">
+          <span class="proj-tag">Advanced CSS</span>
+          <span class="proj-tag">JS Animations</span>
+          <span class="proj-tag">SEO Strategy</span>
+          <span class="proj-tag">Booking UI</span>
+        </div>
+      </div>
+      <span class="proj-arrow" style="opacity:0.25; cursor:default">↗</span>
+    </div>
+
+  </div>
+</section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="skills-inner">
+      <span class="section-num reveal-left">// 03</span>
+      <h2 class="section-title-big reveal-left" style="transition-delay:0.1s">Skills &<br>Tools</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal" style="transition-delay:0s">
+          <img class="skill-icon-img" src="assets/images/React.png" alt="React" />
+          <span class="skill-name">React</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.05s">
+          <img class="skill-icon-img" src="assets/images/JavaScript.png" alt="JavaScript" />
+          <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.1s">
+          <img class="skill-icon-img" src="assets/images/Java.png" alt="Java" />
+          <span class="skill-name">Java</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.15s">
+          <img class="skill-icon-img" src="assets/images/spring.png" alt="Spring Boot" />
+          <span class="skill-name">Spring Boot</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.2s">
+          <img class="skill-icon-img" src="assets/images/Css- HTML.png" alt="CSS / HTML" />
+          <span class="skill-name">CSS / HTML</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.25s">
+          <img class="skill-icon-img" src="assets/images/python.png" alt="Python" />
+          <span class="skill-name">Python</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.3s">
+          <img class="skill-icon-img" src="assets/images/typescript.png" alt="TypeScript" />
+          <span class="skill-name">TypeScript</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.35s">
+          <img class="skill-icon-img" src="assets/images/Git.png" alt="Git" />
+          <span class="skill-name">Git</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.4s">
+          <img class="skill-icon-img" src="assets/images/ui-ux.png" alt="UI/UX Design" />
+          <span class="skill-name">UI/UX Design</span>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:0.45s">
+          <img class="skill-icon-img" src="assets/images/Devicon.png" alt="Node.js / Dev" />
+          <span class="skill-name">Node.js</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <span class="section-num reveal-left">// 04</span>
+        <h2 class="contact-title reveal-left" style="transition-delay:0.1s">
+          Let's<br><span class="neon">Connect</span>
+        </h2>
+        <p class="contact-desc reveal" style="transition-delay:0.2s">
+          ¿Tienes un proyecto en mente o simplemente quieres saludar?
+          Estoy siempre abierto a nuevas oportunidades y colaboraciones. ¡Hablemos!
+        </p>
+        <div class="social-row reveal" style="transition-delay:0.3s">
+          <a href="mailto:georgerojasmorillo@gmail.com" class="social-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" />
+            </svg>
+          </a>
+          <a href="https://github.com/C0rsss" target="_blank" class="social-btn" aria-label="GitHub" rel="noopener">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.71c-2.78.6-3.37-1.19-3.37-1.19-.45-1.17-1.1-1.48-1.1-1.48-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 7.07c.86 0 1.74.12 2.56.36 1.93-1.29 2.78-1.02 2.78-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ge0rgeee" target="_blank" class="social-btn" aria-label="LinkedIn"
+            rel="noopener">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.5c0-1.55-.03-3.54-2.16-3.54-2.16 0-2.49 1.68-2.49 3.43V23h-4V8.5z" />
+            </svg>
+          </a>
+          <!-- WhatsApp con mensaje predeterminado -->
+          <a href="https://wa.me/573504424191?text=Hola%20George%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20contigo%20%F0%9F%91%8B"
+            target="_blank" class="social-btn" aria-label="WhatsApp" rel="noopener">
+            <svg viewBox="0 0 32 32">
+              <path
+                d="M19.11 17.13c-.27-.14-1.59-.79-1.84-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.48-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.43-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.28 0 1.34.98 2.63 1.12 2.81.14.18 1.92 2.94 4.65 4.12.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.59-.65 1.82-1.28.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.52-.32z" />
+              <path
+                d="M26.66 5.34A15.9 15.9 0 0 0 16 .01C7.18.01.01 7.18.01 16c0 2.82.74 5.55 2.14 7.96L.01 32l8.2-2.09A15.92 15.92 0 0 0 16 31.99c8.82 0 15.99-7.17 15.99-15.99 0-4.27-1.66-8.29-4.67-11.3zM16 29.27c-2.69 0-5.23-.78-7.43-2.26l-.53-.34-4.86 1.24 1.3-4.73-.35-.57a13.12 13.12 0 0 1-2.03-7.01C1.99 8.42 8.41 1.99 16 1.99c3.72 0 7.22 1.45 9.85 4.08a13.85 13.85 0 0 1 4.08 9.85c0 7.59-6.43 14.02-13.93 13.35z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" style="transition-delay:0.2s"
+        action="https://formsubmit.co/georgerojasmorillo@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="https://c0rsss.github.io/portafolio/gracias.html">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" type="text" name="name" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="align-self:flex-start; border:none;">
+          Send Message ↗
         </button>
-        <ul class="nav-links" id="primary-nav">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="nav-backdrop" id="navBackdrop" hidden></div>
-
-    <!-- Section 1: Hero -->
-    <section class="hero" id="home">
-        <div class="hero-left" data-stagger="0.12">
-            <h1 class="reveal" data-reveal="up">Hello, I'm George</h1>
-            <p class="hero-subtitle reveal" data-reveal="up">
-                <span class="rotating-text" id="rotatingText"></span><span class="typing-caret" aria-hidden="true"></span>
-            </p>
-            <p class="hero-description reveal" data-reveal="up">
-                Apasionado por crear experiencias digitales increíbles y soluciones innovadoras 
-                que hacen la diferencia. Transformo ideas en código funcional y elegante.
-            </p>
-            <a href="assets/cv/George-CV.pdf" class="btn-download reveal" data-reveal="up" download>Download CV</a>
-        </div>
-
-        <div class="hero-right">
-            <div class="profile-container" data-stagger="0.08">
-                <div class="profile-circle reveal" data-reveal="zoom"><img src="assets/images/George.jpg" alt="George"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Java.svg" alt="Java"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/JavaScript.svg" alt="JavaScript"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/CSS3.svg" alt="CSS3"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Git.svg" alt="Git"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/React.svg" alt="React"></div>
-                <div class="orbit-icon reveal" data-reveal="up"><img src="assets/images/Devicon.svg" alt="Devos"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2: About Me -->
-    <section class="about-section" id="about">
-        <div class="about-left" data-stagger="0.12">
-            <h2 class="section-title reveal" data-reveal="left">About Me</h2>
-            <p class="about-text reveal" data-reveal="up">
-                Soy un desarrollador apasionado con experiencia en la creación de aplicaciones web modernas y funcionales.
-                Disfruto enfrentar desafíos técnicos y transformar ideas en proyectos reales que aporten valor.
-                Me enfoco en construir soluciones prácticas, aprender constantemente y mantenerme al día con las nuevas tecnologías
-                y tendencias del desarrollo.
-            </p>
-            
-            <h3 class="skills-subtitle reveal" data-reveal="up">Skills & Technologies</h3>
-            <div class="skills-container" data-stagger="0.06">
-                <div class="skill-badge reveal" data-reveal="up">HTML</div>
-                <div class="skill-badge reveal" data-reveal="up">CSS</div>
-                <div class="skill-badge reveal" data-reveal="up">JavaScript</div>
-                <div class="skill-badge reveal" data-reveal="up">React</div>
-                <div class="skill-badge reveal" data-reveal="up">Node.js</div>
-                <div class="skill-badge reveal" data-reveal="up">Java</div>
-                <div class="skill-badge reveal" data-reveal="up">Spring Boot</div>
-                <div class="skill-badge reveal" data-reveal="up">Git</div>
-                <div class="skill-badge reveal" data-reveal="up">Responsive Design</div>
-                <div class="skill-badge reveal" data-reveal="up">UI/UX</div>
-            </div>
-        </div>
-
-        <div class="about-right">
-            <div class="code-block">
-                <div class="code-header">
-                    <div class="code-dot"></div>
-                    <div class="code-dot"></div>
-                    <div class="code-dot"></div>
-                </div>
-                <div class="code-content">
-                    <div class="code-line"><span class="code-keyword">const</span> <span class="code-function">developer</span> = {</div>
-                    <div class="code-line">  name: <span class="code-string">'George'</span>,</div>
-                    <div class="code-line">  role: <span class="code-string">'Front-End Developer'</span>,</div>
-                    <div class="code-line">  skills: [</div>
-                    <div class="code-line">    <span class="code-string">'JavaScript'</span>,</div>
-                    <div class="code-line">    <span class="code-string">'React'</span>,</div>
-                    <div class="code-line">    <span class="code-string">'Java'</span>,</div>
-                    <div class="code-line">    <span class="code-string">'Spring Boot'</span></div>
-                    <div class="code-line">    <span class="code-string">'Git'</span></div>
-                    <div class="code-line">    <span class="code-string">'Responsive Design'</span></div>
-                    <div class="code-line">    <span class="code-string">'UI/UX'</span></div>
-                    <div class="code-line">  ],</div>
-                    <div class="code-line">  passion: <span class="code-string">'Building amazing web experiences'</span></div>
-                    <div class="code-line">};</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="code-comment">// Always learning, always creating</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Projects -->
-    <section class="projects-section" id="projects">
-        <h2 class="section-title reveal" data-reveal="left">My Projects</h2>
-        <div class="projects-grid" data-stagger="0.12">
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">🚀</div>
-                <div class="project-content">
-                    <h3>E-Commerce Platform</h3>
-                    <p>Plataforma completa de comercio electrónico con pasarela de pagos, gestión de inventario y panel de administración.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">MongoDB</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">🎯</div>
-                <div class="project-content">
-                    <h3>Task Management App</h3>
-                    <p>Aplicación de gestión de tareas con colaboración en tiempo real y notificaciones inteligentes.</p>
-                    <div class="project-tags">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">PWA</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">✨</div>
-                <div class="project-content">
-                    <h3>Analytics Dashboard</h3>
-                    <p>Dashboard interactivo con visualización de datos en tiempo real y reportes personalizables.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">D3.js</span>
-                        <span class="tag">API REST</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">🎨</div>
-                <div class="project-content">
-                    <h3>Portfolio Generator</h3>
-                    <p>Herramienta para crear portafolios personalizados con plantillas prediseñadas y exportación a código.</p>
-                    <div class="project-tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">TailwindCSS</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">📱</div>
-                <div class="project-content">
-                    <h3>Social Media App</h3>
-                    <p>Red social con feed de noticias, mensajería instantánea y compartición de contenido multimedia.</p>
-                    <div class="project-tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">GraphQL</span>
-                        <span class="tag">AWS</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" data-reveal="up">
-                <div class="project-image">🎮</div>
-                <div class="project-content">
-                    <h3>Gaming Platform</h3>
-                    <p>Plataforma de juegos en línea con sistema de puntuaciones, logros y torneos multijugador.</p>
-                    <div class="project-tags">
-                        <span class="tag">Three.js</span>
-                        <span class="tag">WebSocket</span>
-                        <span class="tag">Redis</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Contact -->
-    <section class="contact-section" id="contact">
-        <div class="contact-left" data-stagger="0.12">
-            <h2 class="section-title reveal" data-reveal="left">Let's Connect</h2>
-            <p class="contact-message reveal" data-reveal="up">
-                ¿Tienes un proyecto en mente o simplemente quieres saludar? 
-                No dudes en contactarme. Estoy siempre abierto a nuevas oportunidades 
-                y colaboraciones interesantes. ¡Hablemos!
-            </p>
-
-            <div class="social-links" data-stagger="0.08">
-                <a href="mailto:georgerojasmorillo@gmail.com" class="social-link reveal" data-reveal="right" aria-label="Email" title="Email">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
-                </a>
-                <a href="https://github.com/C0rsss" target="_blank" class="social-link reveal" data-reveal="right" aria-label="GitHub" title="GitHub" rel="noopener">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.71c-2.78.6-3.37-1.19-3.37-1.19-.45-1.17-1.1-1.48-1.1-1.48-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 7.07c.86 0 1.74.12 2.56.36 1.93-1.29 2.78-1.02 2.78-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/ge0rgeee" target="_blank" class="social-link reveal" data-reveal="right" aria-label="LinkedIn" title="LinkedIn" rel="noopener">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.5c0-1.55-.03-3.54-2.16-3.54-2.16 0-2.49 1.68-2.49 3.43V23h-4V8.5z"/></svg>
-                </a>
-                <a href="https://wa.me/573504424191?text=Hola%20George%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" class="social-link reveal" data-reveal="right" aria-label="WhatsApp" title="WhatsApp" rel="noopener">
-                    <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M19.11 17.13c-.27-.14-1.59-.79-1.84-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.48-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.43-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.28 0 1.34.98 2.63 1.12 2.81.14.18 1.92 2.94 4.65 4.12.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.59-.65 1.82-1.28.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.52-.32z"/><path d="M26.66 5.34A15.9 15.9 0 0 0 16 .01C7.18.01.01 7.18.01 16c0 2.82.74 5.55 2.14 7.96L.01 32l8.2-2.09A15.92 15.92 0 0 0 16 31.99c8.82 0 15.99-7.17 15.99-15.99 0-4.27-1.66-8.29-4.67-11.3zM16 29.27c-2.69 0-5.23-.78-7.43-2.26l-.53-.34-4.86 1.24 1.3-4.73-.35-.57a13.12 13.12 0 0 1-2.03-7.01C1.99 8.42 8.41 1.99 16 1.99c3.72 0 7.22 1.45 9.85 4.08a13.85 13.85 0 0 1 4.08 9.85c0 7.59-6.43 14.02-13.93 13.35z"/></svg>
-                </a>
-            </div>
-        </div>
-
-        <div class="contact-right">
-            <form class="contact-form" id="contactForm" data-stagger="0.08" action="https://formsubmit.co/georgerojasmorillo@gmail.com" method="POST">
-                <div id="formStatus" class="form-status"></div>
-                
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="box" />
-                <input type="hidden" name="_next" value="./gracias.html" />
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-                
-                <div class="form-group reveal" data-reveal="up">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your name">
-                </div>
-
-                <div class="form-group reveal" data-reveal="up">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
-                </div>
-
-                <div class="form-group reveal" data-reveal="up">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit reveal" data-reveal="up">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="reveal" data-reveal="up">
-        <p>© 2025 George. Made with 💜 and lots of ☕</p>
-    </footer>
+      </form>
+    </div>
+  </section>
 
 
+  <script src="script.js"></script>
 </body>
+
 </html>
